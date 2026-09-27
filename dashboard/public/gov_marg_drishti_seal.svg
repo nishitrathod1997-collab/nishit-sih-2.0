@@ -1,0 +1,111 @@
+<svg width="600" height="600" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gold Metallic Gradients -->
+    <linearGradient id="goldSeal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCEE21" />
+      <stop offset="30%" stop-color="#D4AF37" />
+      <stop offset="70%" stop-color="#AA771C" />
+      <stop offset="100%" stop-color="#8B6508" />
+    </linearGradient>
+
+    <radialGradient id="signalRed" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#FF6B6B" />
+      <stop offset="60%" stop-color="#EF4444" />
+      <stop offset="100%" stop-color="#991B1B" />
+    </radialGradient>
+    <radialGradient id="signalYellow" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#FEF08A" />
+      <stop offset="60%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#B45309" />
+    </radialGradient>
+    <radialGradient id="signalGreen" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#86EFAC" />
+      <stop offset="60%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#047857" />
+    </radialGradient>
+
+    <!-- Circular Text Paths -->
+    <path id="circleTextTop" d="M 90 300 A 210 210 0 1 1 510 300" fill="none" />
+    <path id="circleTextBottom" d="M 510 300 A 210 210 0 0 1 90 300" fill="none" />
+  </defs>
+
+  <!-- Base White / Light Shield -->
+  <circle cx="300" cy="300" r="280" fill="#FFFFFF" />
+
+  <!-- Outer Navy Blue Government Authority Ring -->
+  <circle cx="300" cy="300" r="270" fill="#0A1F44" stroke="url(#goldSeal)" stroke-width="6" />
+  <circle cx="300" cy="300" r="248" fill="none" stroke="#FFF7C2" stroke-width="1.5" />
+
+  <!-- Circular Ministry Typography -->
+  <!-- Top: MARG-DRISHTI • मार्ग-दृष्टि -->
+  <text fill="url(#goldSeal)" font-family="'Plus Jakarta Sans', sans-serif" font-size="24" font-weight="900" letter-spacing="4">
+    <textPath href="#circleTextTop" startOffset="50%" text-anchor="middle">
+      MARG-DRISHTI • मार्ग-दृष्टि
+    </textPath>
+  </text>
+
+  <!-- Bottom: सड़क परिवहन एवं राजमार्ग मंत्रालय • MoRTH -->
+  <text fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="700" letter-spacing="2">
+    <textPath href="#circleTextBottom" startOffset="50%" text-anchor="middle">
+      सड़क परिवहन एवं राजमार्ग मंत्रालय • MoRTH
+    </textPath>
+  </text>
+
+  <!-- Decorative Stars on Ring -->
+  <polygon points="80,300 83,290 93,290 85,296 88,306 80,300 72,306 75,296 67,290 77,290" fill="url(#goldSeal)" />
+  <polygon points="520,300 523,290 533,290 525,296 528,306 520,300 512,306 515,296 507,290 517,290" fill="url(#goldSeal)" />
+
+  <!-- Inner Seal Circle (Tricolour Border) -->
+  <circle cx="300" cy="300" r="185" fill="#FAFCFF" stroke="#0A1F44" stroke-width="3" />
+  <!-- Saffron Top Half -->
+  <path d="M 115 300 A 185 185 0 0 1 485 300" fill="none" stroke="#FF671F" stroke-width="8" />
+  <!-- Green Bottom Half -->
+  <path d="M 115 300 A 185 185 0 0 0 485 300" fill="none" stroke="#046A38" stroke-width="8" />
+
+  <!-- Center Highway Geometry (2-Lane Asphalt Road curving into distance) -->
+  <g id="highway-lanes">
+    <!-- Road Surface -->
+    <path d="M 170 450 L 260 270 L 340 270 L 430 450 Z" fill="#1E293B" stroke="#D4AF37" stroke-width="2" />
+    
+    <!-- Yellow Outer Edge Lines -->
+    <line x1="185" y1="450" x2="265" y2="270" stroke="#F5A623" stroke-width="3" />
+    <line x1="415" y1="450" x2="335" y2="270" stroke="#F5A623" stroke-width="3" />
+
+    <!-- Center Dashed White Markings -->
+    <line x1="300" y1="450" x2="300" y2="275" stroke="#FFFFFF" stroke-width="4" stroke-dasharray="12 10" />
+
+    <!-- Directional Forward Flow Arrows -->
+    <polygon points="230,410 245,410 245,425 255,425 237,445 220,425 230,425" fill="#10B981" />
+    <polygon points="370,410 355,410 355,425 345,425 363,445 380,425 370,425" fill="#10B981" />
+  </g>
+
+  <!-- State Emblem of India (Ashoka Lion Capital in Gold at Top) -->
+  <g transform="translate(300, 185) scale(0.7)">
+    <path d="M -22 -40 C -22 -48 -14 -54 0 -54 C 14 -54 22 -48 22 -40 C 22 -35 18 -30 14 -26 C 24 -24 30 -16 30 -6 C 30 4 22 10 16 12 C 18 16 18 24 14 30 L -14 30 C -18 24 -18 16 -16 12 C -22 10 -30 4 -30 -6 C -30 -16 -24 -24 -14 -26 C -18 -30 -22 -35 -22 -40 Z" fill="url(#goldSeal)" />
+    <rect x="-34" y="30" width="68" height="8" rx="2" fill="url(#goldSeal)" />
+    <circle cx="0" cy="34" r="3.5" fill="#0A1F44" stroke="#FFF7C2" stroke-width="1" />
+    <text x="0" y="48" fill="#AA771C" font-size="10" font-weight="800" font-family="'Plus Jakarta Sans', sans-serif" text-anchor="middle">सत्यमेव जयते</text>
+  </g>
+
+  <!-- 3-Light Traffic Signal (Red, Amber, Green) Standing at Horizon Hub -->
+  <g transform="translate(300, 268)">
+    <!-- Signal Pole -->
+    <rect x="-4" y="0" width="8" height="50" fill="#334155" rx="2" />
+    
+    <!-- Signal Box Body -->
+    <rect x="-20" y="-70" width="40" height="74" rx="8" fill="#0F172A" stroke="#475569" stroke-width="2" />
+    
+    <!-- Sun Visors -->
+    <path d="M -18 -55 Q 0 -62 18 -55" stroke="#64748B" stroke-width="2" fill="none" />
+    <path d="M -18 -33 Q 0 -40 18 -33" stroke="#64748B" stroke-width="2" fill="none" />
+    <path d="M -18 -11 Q 0 -18 18 -11" stroke="#64748B" stroke-width="2" fill="none" />
+
+    <!-- Red Light -->
+    <circle cx="0" cy="-55" r="8" fill="url(#signalRed)" stroke="#B91C1C" stroke-width="1" />
+    <!-- Amber Light -->
+    <circle cx="0" cy="-33" r="8" fill="url(#signalYellow)" stroke="#D97706" stroke-width="1" />
+    <!-- Green Light (Active Radiant) -->
+    <circle cx="0" cy="-11" r="8.5" fill="url(#signalGreen)" stroke="#059669" stroke-width="1" />
+    <circle cx="-2.5" cy="-13.5" r="2.5" fill="#FFFFFF" opacity="0.7" />
+  </g>
+</svg>

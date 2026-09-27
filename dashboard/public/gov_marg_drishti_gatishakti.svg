@@ -1,0 +1,72 @@
+<svg width="700" height="260" viewBox="0 0 700 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Highway Asphalt Gradient -->
+    <linearGradient id="gsAsphalt" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0A1F44" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+
+    <radialGradient id="gsGreen" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#86EFAC" />
+      <stop offset="60%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#047857" />
+    </radialGradient>
+  </defs>
+
+  <!-- Left: State Emblem of India (Ashoka Lion Capital in Navy) -->
+  <g transform="translate(60, 120) scale(0.95)">
+    <g fill="#0A1F44">
+      <path d="M 32 20 C 32 10 40 4 50 4 C 60 4 68 10 68 20 C 68 25 64 28 60 31 C 70 33 78 40 78 50 C 78 60 70 66 64 68 L 36 68 C 30 66 22 60 22 50 C 22 40 30 33 40 31 C 36 28 32 25 32 20 Z" />
+      <rect x="20" y="68" width="60" height="8" rx="2" />
+      <circle cx="50" cy="72" r="3" fill="#FFFFFF" stroke="#0A1F44" stroke-width="0.5" />
+      <ellipse cx="28" cy="72" rx="3" ry="2" />
+      <ellipse cx="72" cy="72" rx="3" ry="2" />
+      <text x="50" y="92" font-size="10" font-weight="900" font-family="'Plus Jakarta Sans', sans-serif" text-anchor="middle">सत्यमेव जयते</text>
+    </g>
+  </g>
+
+  <!-- Divider Bar -->
+  <line x1="160" y1="40" x2="160" y2="210" stroke="#CBD5E1" stroke-width="2" />
+
+  <!-- Center: Gati-Shakti Dynamic Tricolour Highway & 3-Signal Flow -->
+  <g transform="translate(180, 20)">
+    <!-- Saffron Top Highway Ribbon -->
+    <path d="M 20 130 C 50 40 120 40 170 130" stroke="#FF671F" stroke-width="12" stroke-linecap="round" fill="none" />
+    
+    <!-- Green Bottom Highway Ribbon -->
+    <path d="M 20 130 C 50 220 120 220 170 130" stroke="#046A38" stroke-width="12" stroke-linecap="round" fill="none" />
+
+    <!-- Center Expressway Roadway (Navy Blue) with Dashed Centerline -->
+    <path d="M 32 130 C 60 80 110 80 158 130" stroke="#0A1F44" stroke-width="7" stroke-linecap="round" fill="none" />
+    <path d="M 32 130 C 60 80 110 80 158 130" stroke="#FFFFFF" stroke-width="1.8" stroke-dasharray="4 3" fill="none" />
+
+    <!-- Vertical Traffic Light Pillar inside the Loop -->
+    <rect x="86" y="80" width="20" height="56" rx="5" fill="#020617" stroke="#475569" stroke-width="1.5" />
+    <circle cx="96" cy="90" r="5" fill="#EF4444" />
+    <circle cx="96" cy="108" r="5" fill="#F59E0B" />
+    <circle cx="96" cy="124" r="5.5" fill="url(#gsGreen)" stroke="#059669" stroke-width="0.8" />
+  </g>
+
+  <!-- Divider Bar 2 -->
+  <line x1="390" y1="40" x2="390" y2="210" stroke="#CBD5E1" stroke-width="2" />
+
+  <!-- Right: Official Ministry Typography -->
+  <g transform="translate(410, 60)">
+    <!-- Hindi Ministry Name -->
+    <text x="0" y="25" fill="#0A1F44" font-family="'Plus Jakarta Sans', sans-serif" font-size="17" font-weight="900" letter-spacing="0.5">सड़क परिवहन एवं राजमार्ग मंत्रालय</text>
+    
+    <!-- English Ministry Name -->
+    <text x="0" y="48" fill="#475569" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700" letter-spacing="0.5">MINISTRY OF ROAD TRANSPORT &amp; HIGHWAYS</text>
+    
+    <!-- Initiative Title: MARG-DRISHTI -->
+    <text x="0" y="86" fill="#0A1F44" font-family="'Plus Jakarta Sans', sans-serif" font-size="28" font-weight="900" letter-spacing="2">MARG-DRISHTI</text>
+    
+    <!-- Tagline -->
+    <text x="0" y="112" fill="#FF671F" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="800" letter-spacing="1.5">INTEGRATED TRAFFIC MANAGEMENT SYSTEM</text>
+    
+    <!-- Tricolour Bottom Bar -->
+    <rect x="0" y="128" width="80" height="3.5" fill="#FF671F" rx="1.5" />
+    <rect x="80" y="128" width="80" height="3.5" fill="#0A1F44" rx="1.5" />
+    <rect x="160" y="128" width="80" height="3.5" fill="#046A38" rx="1.5" />
+  </g>
+</svg>
