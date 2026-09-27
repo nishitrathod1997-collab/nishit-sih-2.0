@@ -1,0 +1,12 @@
+# Python traffic simulator dependencies
+# ----------------------------------------
+# All core modules (dataclasses, typing, enum, time, random, json, sys, threading)
+# are part of the Python 3.7+ standard library and need no installation.
+#
+# The packages below are included for completeness / future extensibility:
+
+# Environment variable loading (used if the sim ever needs env config)
+python-dotenv>=1.0.0
+
+# Type annotation back-compat shim for Python < 3.9 (no-op on 3.9+)
+typing-extensions>=4.0.0

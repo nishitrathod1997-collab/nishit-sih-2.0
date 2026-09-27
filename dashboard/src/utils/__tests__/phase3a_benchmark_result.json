@@ -1,0 +1,200 @@
+{
+  "metadata": {
+    "title": "Phase 3A Fixed vs Adaptive Benchmark Result",
+    "timestamp": "2026-09-03T14:25:40.179Z",
+    "randomSeed": 42,
+    "durationSec": 158.6,
+    "timestepSec": 0.1,
+    "videoSource": "backend/videos/bellevue_trial.mp4 (South approach)",
+    "controllerSettings": {
+      "fixedDurations": {
+        "N": 30,
+        "S": 45,
+        "E": 22,
+        "W": 60
+      },
+      "yellowDurationSec": 3,
+      "allRedDurationSec": 1,
+      "adaptiveLimits": {
+        "minGreen": 10,
+        "maxGreen": 60,
+        "maxContinuousGreen": 60
+      }
+    },
+    "metricDefinitions": {
+      "offeredArrivals": "Total input arrival events provided in schedule",
+      "acceptedArrivals": "Count of vehicles injected into visible road or backlog",
+      "completedDepartures": "Count of vehicles crossing intersection exit (pos >= 100)",
+      "totalAccumulatedWaitSec": "Time-integrated sum of stopped vehicle seconds (visible + backlog + departed)",
+      "timeWeightedAvgStoppedQueue": "Time-weighted mean stopped vehicles (visible stopped + backlog)",
+      "maxStoppedQueue": "Maximum instantaneous stopped vehicles (visible stopped + backlog)"
+    }
+  },
+  "fixedResults": {
+    "strategy": "fixed",
+    "targetDurationSec": 158.6,
+    "totalOfferedArrivals": 151,
+    "totalAcceptedArrivals": 151,
+    "totalRejectedArrivals": 0,
+    "totalDepartures": 43,
+    "totalVisibleCarsRemaining": 29,
+    "totalBacklogCarsRemaining": 79,
+    "totalAccumulatedWaitSec": 6892.8,
+    "timeWeightedAvgStoppedQueue": 43.46,
+    "maxStoppedQueue": 89,
+    "perApproach": {
+      "N": {
+        "offeredArrivals": 56,
+        "acceptedArrivals": 56,
+        "rejectedArrivals": 0,
+        "departures": 11,
+        "visibleCarsRemaining": 5,
+        "backlogCarsRemaining": 40,
+        "accumulatedWaitSec": 3284.1,
+        "avgStoppedQueue": 20.71,
+        "maxStoppedQueue": 45
+      },
+      "E": {
+        "offeredArrivals": 44,
+        "acceptedArrivals": 44,
+        "rejectedArrivals": 0,
+        "departures": 17,
+        "visibleCarsRemaining": 5,
+        "backlogCarsRemaining": 22,
+        "accumulatedWaitSec": 1496.2,
+        "avgStoppedQueue": 9.43,
+        "maxStoppedQueue": 27
+      },
+      "S": {
+        "offeredArrivals": 11,
+        "acceptedArrivals": 11,
+        "rejectedArrivals": 0,
+        "departures": 9,
+        "visibleCarsRemaining": 2,
+        "backlogCarsRemaining": 0,
+        "accumulatedWaitSec": 390.2,
+        "avgStoppedQueue": 2.46,
+        "maxStoppedQueue": 7
+      },
+      "W": {
+        "offeredArrivals": 40,
+        "acceptedArrivals": 40,
+        "rejectedArrivals": 0,
+        "departures": 6,
+        "visibleCarsRemaining": 17,
+        "backlogCarsRemaining": 17,
+        "accumulatedWaitSec": 1722.3,
+        "avgStoppedQueue": 10.86,
+        "maxStoppedQueue": 27
+      }
+    },
+    "processedEventIdsCount": 151
+  },
+  "adaptiveResults": {
+    "strategy": "adaptive",
+    "targetDurationSec": 158.6,
+    "totalOfferedArrivals": 151,
+    "totalAcceptedArrivals": 151,
+    "totalRejectedArrivals": 0,
+    "totalDepartures": 59,
+    "totalVisibleCarsRemaining": 29,
+    "totalBacklogCarsRemaining": 63,
+    "totalAccumulatedWaitSec": 6197,
+    "timeWeightedAvgStoppedQueue": 39.07,
+    "maxStoppedQueue": 77,
+    "perApproach": {
+      "N": {
+        "offeredArrivals": 56,
+        "acceptedArrivals": 56,
+        "rejectedArrivals": 0,
+        "departures": 11,
+        "visibleCarsRemaining": 5,
+        "backlogCarsRemaining": 40,
+        "accumulatedWaitSec": 3284.1,
+        "avgStoppedQueue": 20.71,
+        "maxStoppedQueue": 45
+      },
+      "E": {
+        "offeredArrivals": 44,
+        "acceptedArrivals": 44,
+        "rejectedArrivals": 0,
+        "departures": 20,
+        "visibleCarsRemaining": 5,
+        "backlogCarsRemaining": 19,
+        "accumulatedWaitSec": 1198.7,
+        "avgStoppedQueue": 7.56,
+        "maxStoppedQueue": 24
+      },
+      "S": {
+        "offeredArrivals": 11,
+        "acceptedArrivals": 11,
+        "rejectedArrivals": 0,
+        "departures": 8,
+        "visibleCarsRemaining": 3,
+        "backlogCarsRemaining": 0,
+        "accumulatedWaitSec": 477.4,
+        "avgStoppedQueue": 3.01,
+        "maxStoppedQueue": 7
+      },
+      "W": {
+        "offeredArrivals": 40,
+        "acceptedArrivals": 40,
+        "rejectedArrivals": 0,
+        "departures": 20,
+        "visibleCarsRemaining": 16,
+        "backlogCarsRemaining": 4,
+        "accumulatedWaitSec": 1236.8,
+        "avgStoppedQueue": 7.8,
+        "maxStoppedQueue": 21
+      }
+    },
+    "processedEventIdsCount": 151
+  },
+  "comparisonTable": {
+    "totalOfferedArrivals": {
+      "fixed": 151,
+      "adaptive": 151,
+      "diffPct": "+0.0%"
+    },
+    "totalAcceptedArrivals": {
+      "fixed": 151,
+      "adaptive": 151,
+      "diffPct": "+0.0%"
+    },
+    "totalRejectedArrivals": {
+      "fixed": 0,
+      "adaptive": 0,
+      "diffPct": "N/A"
+    },
+    "totalDepartures": {
+      "fixed": 43,
+      "adaptive": 59,
+      "diffPct": "+37.2%"
+    },
+    "totalVisibleCarsRemaining": {
+      "fixed": 29,
+      "adaptive": 29,
+      "diffPct": "+0.0%"
+    },
+    "totalBacklogCarsRemaining": {
+      "fixed": 79,
+      "adaptive": 63,
+      "diffPct": "-20.3%"
+    },
+    "totalAccumulatedWaitSec": {
+      "fixed": 6892.8,
+      "adaptive": 6197,
+      "diffPct": "-10.1%"
+    },
+    "timeWeightedAvgStoppedQueue": {
+      "fixed": 43.46,
+      "adaptive": 39.07,
+      "diffPct": "-10.1%"
+    },
+    "maxStoppedQueue": {
+      "fixed": 89,
+      "adaptive": 77,
+      "diffPct": "-13.5%"
+    }
+  }
+}

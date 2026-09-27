@@ -1,0 +1,210 @@
+{
+  "metadata": {
+    "runId": "run-1790006900414-ckzbn",
+    "engineVersion": "2.4.0",
+    "startTime": "2026-09-21T16:08:20.413Z",
+    "completionTime": "2026-09-21T16:08:20.482Z",
+    "timestamp": "2026-09-21T16:08:20.482Z",
+    "randomSeed": 42,
+    "actualDurationSec": 158.63,
+    "timelineFingerprint": "fp-54c306e0-v3",
+    "mappedDirection": "S",
+    "videoId": "bellevue_trial",
+    "fixedPlanLabel": "Uniform Fixed Baseline — 45s per direction",
+    "scenarioLabel": "Short-run comparison (~159s clip; full Fixed cycle takes ~196s including clearance)",
+    "fixedDurations": {
+      "N": 45,
+      "S": 45,
+      "E": 45,
+      "W": 45
+    },
+    "inputConfig": {
+      "videoId": "bellevue_trial",
+      "mappedDirection": "S",
+      "durationSec": 158.63,
+      "randomSeed": 42,
+      "demandMultiplier": 0.5,
+      "adaptiveSecondsPerPCU": 1,
+      "arrivalCount": 11,
+      "fixedDurations": {
+        "N": 45,
+        "S": 45,
+        "E": 45,
+        "W": 45
+      },
+      "roi": null,
+      "weatherMode": "normal",
+      "weatherPolicy": {
+        "DEFAULT_MODE": "normal",
+        "MODES": [
+          "normal",
+          "rain",
+          "fog"
+        ],
+        "MULTIPLIERS": {
+          "normal": 1,
+          "rain": 1.2,
+          "fog": 1.4
+        },
+        "NOMINAL_YELLOW_SEC": 3,
+        "NOMINAL_ALL_RED_SEC": 1,
+        "CLEARANCE_BOUNDS": {
+          "yellow": {
+            "min": 3,
+            "max": 4.2
+          },
+          "allRed": {
+            "min": 1,
+            "max": 1.4
+          }
+        }
+      },
+      "version": "2.4.0"
+    }
+  },
+  "fixedResults": {
+    "strategy": "fixed",
+    "actualDurationSec": 158.63,
+    "totalOfferedArrivals": 78,
+    "totalAcceptedArrivals": 78,
+    "totalDepartures": 28,
+    "totalVisibleCarsRemaining": 21,
+    "totalBacklogCarsRemaining": 29,
+    "totalRemainingVehicles": 50,
+    "totalAccumulatedWaitSec": 2992.2,
+    "averageWaitingAccruedPerAdmitted": 38.36,
+    "departedVehiclesAvgWaiting": 23.55,
+    "departedSampleCount": 28,
+    "timeWeightedAvgStoppedQueue": 18.86,
+    "maxStoppedQueue": 44,
+    "perApproach": {
+      "N": {
+        "acceptedArrivals": 33,
+        "departures": 10,
+        "accumulatedWaitSec": 1278.1,
+        "avgWaitingAccruedPerAdmitted": 38.73,
+        "visibleRemaining": 5,
+        "backlogRemaining": 18
+      },
+      "E": {
+        "acceptedArrivals": 20,
+        "departures": 7,
+        "accumulatedWaitSec": 324.6,
+        "avgWaitingAccruedPerAdmitted": 16.23,
+        "visibleRemaining": 5,
+        "backlogRemaining": 8
+      },
+      "S": {
+        "acceptedArrivals": 11,
+        "departures": 11,
+        "accumulatedWaitSec": 541,
+        "avgWaitingAccruedPerAdmitted": 49.18,
+        "visibleRemaining": 0,
+        "backlogRemaining": 0
+      },
+      "W": {
+        "acceptedArrivals": 14,
+        "departures": 0,
+        "accumulatedWaitSec": 848.5,
+        "avgWaitingAccruedPerAdmitted": 60.61,
+        "visibleRemaining": 11,
+        "backlogRemaining": 3
+      }
+    },
+    "processedEventIdsCount": 78
+  },
+  "adaptiveResults": {
+    "strategy": "adaptive",
+    "actualDurationSec": 158.63,
+    "totalOfferedArrivals": 78,
+    "totalAcceptedArrivals": 78,
+    "totalDepartures": 46,
+    "totalVisibleCarsRemaining": 18,
+    "totalBacklogCarsRemaining": 14,
+    "totalRemainingVehicles": 32,
+    "totalAccumulatedWaitSec": 1137.3,
+    "averageWaitingAccruedPerAdmitted": 14.58,
+    "departedVehiclesAvgWaiting": 15.81,
+    "departedSampleCount": 46,
+    "timeWeightedAvgStoppedQueue": 7.17,
+    "maxStoppedQueue": 26,
+    "perApproach": {
+      "N": {
+        "acceptedArrivals": 33,
+        "departures": 22,
+        "accumulatedWaitSec": 464,
+        "avgWaitingAccruedPerAdmitted": 14.06,
+        "visibleRemaining": 5,
+        "backlogRemaining": 6
+      },
+      "E": {
+        "acceptedArrivals": 20,
+        "departures": 7,
+        "accumulatedWaitSec": 344.5,
+        "avgWaitingAccruedPerAdmitted": 17.23,
+        "visibleRemaining": 5,
+        "backlogRemaining": 8
+      },
+      "S": {
+        "acceptedArrivals": 11,
+        "departures": 8,
+        "accumulatedWaitSec": 76,
+        "avgWaitingAccruedPerAdmitted": 6.91,
+        "visibleRemaining": 3,
+        "backlogRemaining": 0
+      },
+      "W": {
+        "acceptedArrivals": 14,
+        "departures": 9,
+        "accumulatedWaitSec": 252.9,
+        "avgWaitingAccruedPerAdmitted": 18.06,
+        "visibleRemaining": 5,
+        "backlogRemaining": 0
+      }
+    },
+    "processedEventIdsCount": 78
+  },
+  "comparisonTable": {
+    "totalOfferedArrivals": {
+      "fixed": 78,
+      "adaptive": 78,
+      "diffPct": "+0.0%"
+    },
+    "totalAcceptedArrivals": {
+      "fixed": 78,
+      "adaptive": 78,
+      "diffPct": "+0.0%"
+    },
+    "totalDepartures": {
+      "fixed": 28,
+      "adaptive": 46,
+      "diffPct": "+64.3%"
+    },
+    "averageWaitingAccruedPerAdmitted": {
+      "fixed": 38.36,
+      "adaptive": 14.58,
+      "diffPct": "-62.0%"
+    },
+    "totalAccumulatedWaitSec": {
+      "fixed": 2992.2,
+      "adaptive": 1137.3,
+      "diffPct": "-62.0%"
+    },
+    "timeWeightedAvgStoppedQueue": {
+      "fixed": 18.86,
+      "adaptive": 7.17,
+      "diffPct": "-62.0%"
+    },
+    "maxStoppedQueue": {
+      "fixed": 44,
+      "adaptive": 26,
+      "diffPct": "-40.9%"
+    },
+    "totalRemainingVehicles": {
+      "fixed": 50,
+      "adaptive": 32,
+      "diffPct": "-36.0%"
+    }
+  },
+  "status": "COMPLETED"
+}

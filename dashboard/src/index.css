@@ -1,0 +1,892 @@
+/* Google Fonts + Tailwind — must be first imports */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import 'tailwindcss';
+
+/* Local Font Fallbacks */
+@font-face {
+  font-family: 'Noto Sans';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: local('Noto Sans'), local('NotoSans'), url('/fonts/NotoSans-Regular.woff2') format('woff2'), url('https://fonts.gstatic.com/s/notosans/v42/o-0bIpQlx3QUlC5A4PNB6Ryti20_6n1iPHjc5a7duw.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Noto Sans Devanagari';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: local('Noto Sans Devanagari'), url('/fonts/NotoSans-Devanagari.woff2') format('woff2'), url('https://fonts.gstatic.com/s/notosansdevanagari/v30/TuG7UUFzXI5FBtUq5a8bjKYTZjtRU6Sgv3NaV_SNmI0b8QQCQmHN5TV_9qo.woff2') format('woff2');
+}
+
+@theme {
+  --font-sans: 'Noto Sans', 'Noto Sans Devanagari', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Noto Sans', 'Noto Sans Devanagari', system-ui, -apple-system, sans-serif;
+
+  --color-slate-50: var(--clr-bg);
+  --color-slate-100: var(--clr-surface-2);
+  --color-slate-200: var(--clr-border);
+  --color-slate-300: #CBD5E1;
+  --color-slate-400: var(--clr-text-muted);
+  --color-slate-500: var(--clr-text-muted);
+  --color-slate-600: var(--clr-text-secondary);
+  --color-slate-700: var(--clr-text-secondary);
+  --color-slate-800: var(--clr-text-primary);
+  --color-slate-900: var(--clr-navy-900);
+
+  --color-blue-50: #EEF2F6;
+  --color-blue-100: #D8E2ED;
+  --color-blue-200: #B5C9DF;
+  --color-blue-300: #8CAACD;
+  --color-blue-400: #4B78AB;
+  --color-blue-500: var(--clr-navy-600);
+  --color-blue-600: var(--clr-navy-800);
+  --color-blue-700: var(--clr-navy-900);
+
+  --color-navy-900: #0A1F44;
+  --color-navy-800: #0F2C59;
+  --color-navy-700: #163A6B;
+  --color-navy-600: #1E4D8C;
+
+  --color-gold-500: #F5A623;
+  --color-gold-400: #FBBF24;
+  --color-gold-600: #B8860B;
+
+  --color-gray-50: var(--clr-bg);
+  --color-gray-100: var(--clr-surface-2);
+  --color-gray-200: var(--clr-border);
+  --color-gray-300: #CBD5E1;
+  --color-gray-700: var(--clr-text-secondary);
+  --color-gray-800: var(--clr-text-primary);
+  --color-gray-900: var(--clr-navy-900);
+}
+
+/* ============================================================
+   SHREYA — index.css
+   Styling, Theme & Global CSS
+   Owner: Shreya
+   ============================================================ */
+
+
+/* ── CSS Custom Properties (Design Tokens) ───────────────── */
+:root {
+  /* Brand palette — Government Navy / Yellow / White Dashboard */
+  --clr-bg:              #F4F6F9;
+  --clr-surface:         #FFFFFF;
+  --clr-surface-2:       #F8FAFC;
+  --clr-border:          #E2E8F0;
+  --clr-border-light:    rgba(10,31,68,0.06);
+
+  --clr-navy-900:        #0A1F44;
+  --clr-navy-800:        #0F2C59;
+  --clr-navy-700:        #163A6B;
+  --clr-navy-600:        #1E4D8C;
+
+  --clr-accent-yellow:   #F5A623;
+  --clr-accent-yellow-2: #FBBF24;
+  --clr-accent-yellow-3: #B8860B;
+
+  --clr-text-primary:    #0A1F44;
+  --clr-text-secondary:  #475569;
+  --clr-text-muted:      #94A3B8;
+
+  --clr-success:         #16A34A;
+  --clr-warning:         #F59E0B;
+  --clr-danger:          #DC2626;
+  --clr-emergency:       #DC2626;
+
+  /* Re-mapped brand aliases */
+  --clr-primary:         var(--clr-navy-800);
+  --clr-primary-glow:    rgba(15,44,89,0.18);
+  --clr-accent:          var(--clr-accent-yellow);
+
+  /* Road surface palette — unchanged for simulation fidelity */
+  --road-asphalt:     #1c1f26;
+  --road-asphalt-mid: #23272f;
+  --road-edge:        #2a2e38;
+  --road-marking:     #fbbf24;
+  --road-center:      #fcd34d;
+  --road-edge-white:  rgba(255,255,255,0.75);
+  --road-gravel:      #2d3142;
+
+  /* Radii */
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  14px;
+  --radius-xl:  20px;
+
+  /* Shadows — subtle dashboard shadows */
+  --shadow-card:       0 1px 3px rgba(10,31,68,0.06), 0 1px 2px rgba(10,31,68,0.04);
+  --shadow-glow-blue:  0 0 16px rgba(15,44,89,0.20);
+  --shadow-glow-green: 0 0 16px rgba(22,163,74,0.20);
+  --shadow-glow-red:   0 0 16px rgba(220,38,38,0.20);
+
+  /* Transitions */
+  --t-fast:   0.15s ease;
+  --t-normal: 0.25s ease;
+  --t-slow:   0.4s ease;
+}
+
+/* ── Base Reset & Typography ─────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after,
+html,
+body,
+#root,
+#root *,
+button,
+input,
+optgroup,
+select,
+textarea,
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+label,
+div,
+table,
+thead,
+tbody,
+tr,
+th,
+td,
+li,
+ul,
+ol,
+code,
+pre,
+kbd,
+samp,
+.font-mono,
+.font-mono *,
+.font-sans,
+.font-sans *,
+.logistics-page,
+.logistics-page *,
+[data-page="logistics-simulation"],
+[data-page="logistics-simulation"] *,
+.mode-badge,
+svg,
+svg text,
+svg tspan,
+.recharts-wrapper,
+.recharts-wrapper *,
+.recharts-surface,
+.recharts-surface *,
+.recharts-text,
+.recharts-legend-item-text,
+.recharts-cartesian-axis-tick,
+.recharts-cartesian-axis-tick-value,
+.recharts-tooltip-wrapper,
+.recharts-default-tooltip,
+.recharts-layer text {
+  font-family: 'Noto Sans', 'Noto Sans Devanagari', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+body {
+  background-color: var(--clr-bg);
+  color: var(--clr-text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar             { width: 6px; height: 6px; }
+::-webkit-scrollbar-track       { background: var(--clr-surface); }
+::-webkit-scrollbar-thumb       { background: var(--clr-border); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--clr-text-muted); }
+
+/* ── Selection ───────────────────────────────────────────── */
+::selection {
+  background: var(--clr-primary);
+  color: #fff;
+}
+
+/* ── Focus ring ──────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--clr-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ════════════════════════════════════════════════════════════
+   ROAD & INTERSECTION BACKGROUND SYSTEM
+   Coordinate with Nishit (pages) to apply these classes in
+   LiveIntersection.jsx and Dashboard.jsx intersection divs.
+   ════════════════════════════════════════════════════════════ */
+
+/* Outer canvas — replace plain bg-gray-200/bg-gradient containers */
+.road-canvas {
+  background-color: var(--road-gravel);
+  background-image: repeating-conic-gradient(
+    rgba(255,255,255,0.015) 0deg 90deg,
+    transparent 90deg 180deg
+  );
+  background-size: 8px 8px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+}
+
+/* ── Horizontal road arm ─────────────────────────────────── */
+.road-h {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 50%, rgba(255,255,255,0.03) 0%, transparent 70%),
+    linear-gradient(
+      to bottom,
+      var(--road-edge)        0%,
+      var(--road-asphalt)     8%,
+      var(--road-asphalt-mid) 48%,
+      var(--road-asphalt)     52%,
+      var(--road-asphalt-mid) 92%,
+      var(--road-edge)        100%
+    );
+  box-shadow:
+    inset 0 3px 8px rgba(0,0,0,0.6),
+    inset 0 -3px 8px rgba(0,0,0,0.6);
+}
+
+/* White kerb edges */
+.road-h::before { content: ''; position: absolute; top:    0; left: 0; width: 100%; height: 2px; background: var(--road-edge-white); pointer-events: none; }
+.road-h::after  { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: var(--road-edge-white); pointer-events: none; }
+
+/* Dashed center divider */
+.road-h .lane-center {
+  position: absolute;
+  top: 50%; left: 0;
+  width: 100%; height: 3px;
+  transform: translateY(-50%);
+  background: repeating-linear-gradient(
+    to right,
+    var(--road-center) 0px, var(--road-center) 28px,
+    transparent 28px, transparent 48px
+  );
+  opacity: 0.9;
+}
+
+/* Solid inner lane edges */
+.road-h .lane-edge-top    { position: absolute; top:    25%; left: 0; width: 100%; height: 2px; background: var(--road-marking); opacity: 0.75; }
+.road-h .lane-edge-bottom { position: absolute; bottom: 25%; left: 0; width: 100%; height: 2px; background: var(--road-marking); opacity: 0.75; }
+
+/* ── Vertical road arm ───────────────────────────────────── */
+.road-v {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background:
+    radial-gradient(ellipse 40% 60% at 50% 50%, rgba(255,255,255,0.03) 0%, transparent 70%),
+    linear-gradient(
+      to right,
+      var(--road-edge)        0%,
+      var(--road-asphalt)     8%,
+      var(--road-asphalt-mid) 48%,
+      var(--road-asphalt)     52%,
+      var(--road-asphalt-mid) 92%,
+      var(--road-edge)        100%
+    );
+  box-shadow:
+    inset 3px 0 8px rgba(0,0,0,0.6),
+    inset -3px 0 8px rgba(0,0,0,0.6);
+}
+
+.road-v::before { content: ''; position: absolute; left:  0; top: 0; width: 2px; height: 100%; background: var(--road-edge-white); pointer-events: none; }
+.road-v::after  { content: ''; position: absolute; right: 0; top: 0; width: 2px; height: 100%; background: var(--road-edge-white); pointer-events: none; }
+
+.road-v .lane-center {
+  position: absolute;
+  left: 50%; top: 0;
+  width: 3px; height: 100%;
+  transform: translateX(-50%);
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--road-center) 0px, var(--road-center) 28px,
+    transparent 28px, transparent 48px
+  );
+  opacity: 0.9;
+}
+
+.road-v .lane-edge-left  { position: absolute; left:  25%; top: 0; width: 2px; height: 100%; background: var(--road-marking); opacity: 0.75; }
+.road-v .lane-edge-right { position: absolute; right: 25%; top: 0; width: 2px; height: 100%; background: var(--road-marking); opacity: 0.75; }
+
+/* ── Intersection box ────────────────────────────────────── */
+.road-intersection {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background-color: var(--road-asphalt);
+  background-image:
+    repeating-linear-gradient(
+       45deg, rgba(251,191,36,0.06) 0px, rgba(251,191,36,0.06)  2px, transparent  2px, transparent 14px
+    ),
+    repeating-linear-gradient(
+      -45deg, rgba(251,191,36,0.06) 0px, rgba(251,191,36,0.06)  2px, transparent  2px, transparent 14px
+    ),
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.04) 0%, transparent 70%);
+  box-shadow:
+    inset 0 0 20px rgba(0,0,0,0.5),
+    0 0 0 2px var(--road-marking);
+}
+
+/* AI / MAN badge inside intersection */
+.road-intersection .mode-badge {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Noto Sans', sans-serif !important;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--road-marking);
+  text-shadow: 0 0 8px rgba(251,191,36,0.8);
+}
+
+/* ── Crosswalk zebra strips ──────────────────────────────── */
+.crosswalk-h {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 28px;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.55) 0px, rgba(255,255,255,0.55) 5px,
+    transparent 5px, transparent 10px
+  );
+  pointer-events: none;
+}
+.crosswalk-v {
+  position: absolute;
+  left: 0; right: 0;
+  height: 28px;
+  background: repeating-linear-gradient(
+    to right,
+    rgba(255,255,255,0.55) 0px, rgba(255,255,255,0.55) 5px,
+    transparent 5px, transparent 10px
+  );
+  pointer-events: none;
+}
+
+/* ── Moving lane markings (active/green lane animation) ─── */
+.road-h.lane-active .lane-center {
+  animation: road-scroll-h 0.9s linear infinite;
+}
+.road-v.lane-active .lane-center {
+  animation: road-scroll-v 0.9s linear infinite;
+}
+
+/* ════════════════════════════════════════════════════════════
+   REUSABLE ANIMATION KEYFRAMES
+   ════════════════════════════════════════════════════════════ */
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px  currentColor; opacity: 1;   }
+  50%       { box-shadow: 0 0 22px currentColor; opacity: 0.8; }
+}
+
+@keyframes signal-flash {
+  0%, 49%   { opacity: 1;   }
+  50%, 100% { opacity: 0.2; }
+}
+
+@keyframes slide-in-down {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes ping-ring {
+  0%    { transform: scale(1);   opacity: 0.8; }
+  80%   { transform: scale(2.2); opacity: 0; }
+  100%  { transform: scale(2.2); opacity: 0; }
+}
+
+@keyframes road-scroll-h {
+  from { background-position: 0 0; }
+  to   { background-position: 76px 0; }
+}
+
+@keyframes road-scroll-v {
+  from { background-position: 0 0; }
+  to   { background-position: 0 76px; }
+}
+
+/* ── Animation utility classes ───────────────────────────── */
+.animate-pulse-glow   { animation: pulse-glow    1.8s ease-in-out infinite; }
+.animate-signal-flash { animation: signal-flash  0.8s step-end infinite; }
+.animate-slide-down   { animation: slide-in-down var(--t-normal) both; }
+.animate-slide-up     { animation: slide-in-up   var(--t-normal) both; }
+.animate-fade-in      { animation: fade-in       var(--t-slow)   both; }
+.animate-scale-in     { animation: scale-in      var(--t-normal) both; }
+
+/* ════════════════════════════════════════════════════════════
+   COMPONENT UTILITY CLASSES
+   ════════════════════════════════════════════════════════════ */
+
+/* Surface card */
+.card {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.card:hover {
+  border-color: var(--clr-primary);
+  box-shadow: var(--shadow-card), 0 0 0 1px var(--clr-primary-glow);
+}
+
+/* Glassmorphism card */
+.card-glass {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+}
+
+/* Status pills */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.pill-green  { background: rgba(34,197,94,0.10);  color: #16A34A; border: 1px solid rgba(34,197,94,0.25);  }
+.pill-blue   { background: rgba(15,44,89,0.08);  color: #0F2C59; border: 1px solid rgba(15,44,89,0.20);  }
+.pill-yellow { background: rgba(245,166,35,0.10); color: #B8860B; border: 1px solid rgba(245,166,35,0.25); }
+.pill-red    { background: rgba(239,68,68,0.10);  color: #DC2626; border: 1px solid rgba(239,68,68,0.25);  }
+.pill-orange { background: rgba(249,115,22,0.10); color: #EA580C; border: 1px solid rgba(249,115,22,0.25); }
+
+/* Stat number */
+.stat-value {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+/* Queue badge floating over road */
+.queue-badge {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: rgba(15,23,42,0.85);
+  border: 1px solid rgba(226,232,240,0.3);
+  backdrop-filter: blur(6px);
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(15,23,42,0.15);
+}
+.queue-badge.queue-active   { background: rgba(19,184,178,0.85);  border-color: rgba(19,184,178,0.6);  }
+.queue-badge.queue-high     { background: rgba(245,158,11,0.85); border-color: rgba(245,158,11,0.6); }
+.queue-badge.queue-critical { background: rgba(239,68,68,0.85);  border-color: rgba(239,68,68,0.6);  animation: signal-flash 0.8s step-end infinite; }
+
+/* ════════════════════════════════════════════════════════════
+   LEGEND COMPONENT STYLES  (Legend.jsx — owned by Shreya)
+   ════════════════════════════════════════════════════════════ */
+
+.legend-panel {
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  font-size: 0.78rem;
+  color: var(--clr-text-secondary);
+}
+
+.legend-panel h4 {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clr-text-muted);
+  margin-bottom: 10px;
+}
+
+.legend-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 4px 0;
+  line-height: 1.35;
+}
+
+.legend-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.legend-divider {
+  height: 1px;
+  background: var(--clr-border);
+  margin: 10px 0;
+}
+
+.legend-term {
+  font-weight: 600;
+  color: var(--clr-text-primary);
+  min-width: 90px;
+}
+
+/* ════════════════════════════════════════════════════════════
+   EMERGENCY OVERRIDE — VISUAL FEEDBACK SYSTEM
+   Shreya — appended for EmergencyAlert.jsx prototype
+   ════════════════════════════════════════════════════════════ */
+
+/*
+ * emergency-strobe
+ * Alternates a glowing red → blue box-shadow + border-color,
+ * evoking real emergency light bars (red/blue flashing).
+ * Applied to a container element (banner / card border).
+ */
+@keyframes emergency-strobe {
+  0% {
+    box-shadow:
+      0 0 0 2px #EF4444,
+      0 0 18px 4px rgba(239, 68, 68, 0.40),
+      0 0 40px 8px rgba(239, 68, 68, 0.15);
+    border-color: #EF4444;
+  }
+  25% {
+    box-shadow:
+      0 0 0 2px #DC2626,
+      0 0 24px 6px rgba(220, 38, 38, 0.35),
+      0 0 48px 10px rgba(220, 38, 38, 0.15);
+    border-color: #DC2626;
+  }
+  50% {
+    box-shadow:
+      0 0 0 2px #3B82F6,
+      0 0 18px 4px rgba(59, 130, 246, 0.40),
+      0 0 40px 8px rgba(59, 130, 246, 0.15);
+    border-color: #3B82F6;
+  }
+  75% {
+    box-shadow:
+      0 0 0 2px #2563EB,
+      0 0 24px 6px rgba(37, 99, 235, 0.35),
+      0 0 48px 10px rgba(37, 99, 235, 0.15);
+    border-color: #2563EB;
+  }
+  100% {
+    box-shadow:
+      0 0 0 2px #EF4444,
+      0 0 18px 4px rgba(239, 68, 68, 0.40),
+      0 0 40px 8px rgba(239, 68, 68, 0.15);
+    border-color: #EF4444;
+  }
+}
+
+/*
+ * beacon-flash
+ * Strobe-like opacity + scale pulse — applied to an icon or dot
+ * to mimic a physical emergency beacon flashing.
+ */
+@keyframes beacon-flash {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.6));
+  }
+  15% {
+    opacity: 0.15;
+    transform: scale(0.85);
+    filter: drop-shadow(0 0 0px transparent);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.65));
+  }
+  45% {
+    opacity: 0.15;
+    transform: scale(0.85);
+    filter: drop-shadow(0 0 0px transparent);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.55));
+  }
+  75% {
+    opacity: 0.2;
+    transform: scale(0.9);
+    filter: drop-shadow(0 0 0px transparent);
+  }
+  90% {
+    opacity: 1;
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.5));
+  }
+}
+
+/*
+ * .emergency-strobe-active
+ * Apply to a container (div, section, banner) to get the
+ * muted alternating glow border.
+ */
+.emergency-strobe-active {
+  animation: emergency-strobe 0.7s ease-in-out infinite;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #EF4444;
+  box-shadow:
+    0 0 0 2px #EF4444,
+    0 0 18px 4px rgba(239, 68, 68, 0.40);
+}
+
+/*
+ * .beacon-flash
+ * Apply to an icon, SVG, dot, or any small indicator element.
+ */
+.beacon-flash {
+  animation: beacon-flash 0.65s ease-in-out infinite;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ════════════════════════════════════════════════════════════
+   GLOBAL LAYOUT & SPACING OVERRIDES (Shreya)
+   Fixes component inconsistencies without touching JSX files
+   ════════════════════════════════════════════════════════════ */
+
+/* 1. Metric / Stat Cards — Consistent Grid Gaps & Heights */
+.grid.md\:grid-cols-4 {
+  gap: 1.5rem !important; /* Force uniform 24px gap between cards */
+  align-items: stretch !important; /* Ensure all cards in the row are same height */
+}
+
+/* 2. Card Internal Padding & Flex Column Layout */
+.grid.md\:grid-cols-4 > div {
+  padding: 1.25rem !important; /* Uniform padding across all stat cards */
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  height: 100% !important; /* Fill grid cell */
+}
+
+/* 3. Stat Card Internal Typography & Spacing */
+.grid.md\:grid-cols-4 > div .text-sm,
+.grid.md\:grid-cols-4 > div p.text-sm {
+  line-height: 1.4 !important;
+  margin-bottom: 0.5rem !important; /* Space between label and value */
+  display: block !important;
+}
+
+.grid.md\:grid-cols-4 > div .text-2xl,
+.grid.md\:grid-cols-4 > div .text-3xl {
+  line-height: 1.2 !important;
+  margin-top: auto !important; /* Push large values down */
+  margin-bottom: 0.25rem !important;
+  font-weight: 800 !important;
+}
+
+.grid.md\:grid-cols-4 > div .text-xs,
+.grid.md\:grid-cols-4 > div p.text-xs {
+  margin-top: 0.25rem !important;
+  display: block !important;
+}
+
+/* 4. Section Spacing — Consistent vertical rhythm */
+/* Target all direct children (sections) inside the main container, avoiding Navbar */
+div > .max-w-7xl > div {
+  margin-bottom: 2rem !important; /* Force 32px margin between all sections */
+}
+div > .max-w-7xl > div:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* 5. Alert / Banner Strips — Padding and Alignment */
+/* Target emergency and AI warning banners */
+.max-w-7xl > .bg-red-100, 
+.max-w-7xl > .bg-orange-100, 
+.max-w-7xl > .bg-yellow-100,
+.max-w-7xl > .bg-yellow-50 {
+  padding: 1.25rem 1.5rem !important; /* Taller, consistent padding */
+  border-radius: var(--radius-md) !important;
+  display: flex !important;
+  align-items: center !important;
+  min-height: 4rem !important; /* Ensure banner doesn't collapse */
+}
+/* Ensure inner content of banners centers properly */
+.bg-red-100 > div, 
+.bg-orange-100 > div, 
+.bg-yellow-100 > div {
+  width: 100% !important; /* Full width for inner flex containers */
+}
+.bg-red-100 p, 
+.bg-orange-100 p, 
+.bg-yellow-100 p {
+  margin: 0 !important;
+  line-height: 1.5 !important;
+}
+
+/* 6. Responsive Flex Wrapping — Fix space-x utility collapsing */
+.flex.space-x-4, 
+.flex.space-x-2,
+.flex.space-x-3 {
+  flex-wrap: wrap !important;
+  gap: 0.75rem !important;
+}
+/* Negate tailwind's margin-left hacking for space-x which breaks on wrap */
+.flex.space-x-4 > *, 
+.flex.space-x-2 > *,
+.flex.space-x-3 > * {
+  margin-left: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* 7. Fog Atmospheric Drift Animations */
+@keyframes fogDrift1 {
+  0% { transform: translate(-3%, -2%) scale(1); }
+  50% { transform: translate(3%, 2%) scale(1.04); }
+  100% { transform: translate(-3%, -2%) scale(1); }
+}
+
+@keyframes fogDrift2 {
+  0% { transform: translate(2%, 3%) scale(1.03); }
+  50% { transform: translate(-2%, -2%) scale(0.98); }
+  100% { transform: translate(2%, 3%) scale(1.03); }
+}
+
+.animate-fog-drift-1 {
+  animation: fogDrift1 24s ease-in-out infinite alternate;
+}
+
+.animate-fog-drift-2 {
+  animation: fogDrift2 32s ease-in-out infinite alternate;
+}
+
+/* ── Government of India (GoI) & MoRTH Theme Accents ──────────── */
+.gov-tricolor-strip {
+  height: 4px;
+  background: linear-gradient(90deg, #FF9933 0%, #FF9933 33.3%, #FFFFFF 33.3%, #FFFFFF 66.6%, #138808 66.6%, #138808 100%);
+  width: 100%;
+}
+
+.gov-emblem-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: #0A1F44;
+  color: #F8FAFC;
+  border: 1px solid #1E4D8C;
+}
+
+.gov-card-header {
+  border-bottom: 2px solid #0F2C59;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* ==========================================================================
+   GIGW Accessibility: Dynamic Font Sizing (A- | A | A+)
+   Controls root rem base so all typography across the app scales cleanly.
+   ========================================================================== */
+
+html.font-size-sm {
+  font-size: 87.5% !important; /* 14px base: -12.5% across all rem units */
+}
+
+html.font-size-normal {
+  font-size: 100% !important; /* 16px base: standard */
+}
+
+html.font-size-lg {
+  font-size: 115% !important; /* 18.4px base: +15% across all rem units */
+}
+
+/* Also support wrapper elements if applied */
+body.font-size-sm,
+.font-size-sm {
+  font-size: 87.5% !important;
+}
+
+body.font-size-normal,
+.font-size-normal {
+  font-size: 100% !important;
+}
+
+body.font-size-lg,
+.font-size-lg {
+  font-size: 115% !important;
+}
+
+/* Fixed-pixel font utility scaling under accessibility modes */
+html.font-size-sm [class*="text-[6px]"] { font-size: 5.25px !important; }
+html.font-size-sm [class*="text-[8px]"] { font-size: 7px !important; }
+html.font-size-sm [class*="text-[9px]"] { font-size: 8px !important; }
+html.font-size-sm [class*="text-[10px]"] { font-size: 8.75px !important; }
+html.font-size-sm [class*="text-[11px]"] { font-size: 9.75px !important; }
+
+html.font-size-lg [class*="text-[6px]"] { font-size: 7px !important; }
+html.font-size-lg [class*="text-[8px]"] { font-size: 9.5px !important; }
+html.font-size-lg [class*="text-[9px]"] { font-size: 10.5px !important; }
+html.font-size-lg [class*="text-[10px]"] { font-size: 11.5px !important; }
+html.font-size-lg [class*="text-[11px]"] { font-size: 12.75px !important; }
