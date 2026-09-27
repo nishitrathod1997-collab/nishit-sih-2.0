@@ -1,0 +1,7 @@
+node_modules
+.env
+uploads/
+cache/
+*.pt
+!videos/vid_sim.mp4
+!backend/videos/vid_sim.mp4

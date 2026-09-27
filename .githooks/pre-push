@@ -1,0 +1,13 @@
+#!/bin/sh
+
+protected_branch='main'
+current_branch=$(git symbolic-ref HEAD | sed -e 's,.*/,,')
+
+if [ "$current_branch" = "$protected_branch" ]; then
+    echo "❌ ERROR: Direct push to '$protected_branch' branch is disabled!"
+    echo "📌 Please create a feature branch first:"
+    echo "   git checkout -b feature/your-feature-name"
+    exit 1
+fi
+
+exit 0

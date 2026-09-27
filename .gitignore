@@ -1,0 +1,7 @@
+# Temporary office lock files
+~$*
+
+# Generated extraction dumps
+extracted_pdf_imgs/
+pdf_assets/
+pdf_slides/
